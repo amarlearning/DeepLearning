@@ -22,6 +22,5 @@ testing_data = iris.data[test_idx]
 classifier = tree.DecisionTreeClassifier()
 classifier = classifier.fit(train_data, train_target)
 
-
 # Printing the predicted labels
 print classifier.predict(testing_data)

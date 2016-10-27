@@ -1,19 +1,52 @@
+# -*- coding: utf-8 -*-
+# @Author: Amar Prakash Pandey
+# @Date: 25-10-2016 
+# @Email: amar.om1994@gmail.com  
+# @Github username: @amarlearning 
+# MIT License. You can find a copy of the License
+# @http://amarlearning.mit-license.org
+
+
+# Importing all needed modules 
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
 
+# Saving mnist data sets inside MNSIT data folder!
 mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
+'''
+As we are using Deep neural network, so for that we have defined 
+three hidden layes each having 500 nodes.
+'''
 nodes_HL1 = 500
 nodes_HL2 = 500
 nodes_HL3 = 500
 
+'''
+we have total 10 number that is [0 - 9], so output layer will be total 
+of 10 nodes, out of which one will be true rest all will be false
+'''
 n_Classes = 10
+
+'''
+I have slow GPU, so i will be using a batch of 100 images at a time.
+You can increase the batch size, if you have fast GPU's.
+'''
 Batch_size = 100
 
+'''
+With the help of features and labels, i will be training my Deep neural network,
+approximately 55K images of numeric digits are used to train Deep Nural netowk model,
+Each image is of size 28 x 28 i.e 784px
+'''
 features = tf.placeholder("float", [None, 784])
 labels = tf.placeholder("float")
 
+''' Neural Network Model Defination '''
 def Neural_Network_Model(data):
+	'''
+		
+	'''
 	hidden_1_layer = {
 						'weight' : tf.Variable(tf.random_normal([784, nodes_HL1])),
 						'biases' : tf.Variable(tf.random_normal([nodes_HL1]))
